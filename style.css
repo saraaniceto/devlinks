@@ -1,0 +1,166 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; 
+}
+
+:root {
+    --text-color: white;
+    --bg-url: url(/assets/bg-mobile.jpg);
+    --stroke-color: rgba(255, 255, 255, 0.5);
+    --surface-color: rgba(255, 255, 255, 0.05);
+    --surface-color-hover: rgba(255, 255, 255, 0.02);
+    --social-color-hover: rgba(255, 255, 255, 0.2);
+    --switch-icon: url(assets/moon-stars.svg);
+ 
+}
+
+.light {
+    --text-color: black;
+    --bg-url: url(/assets/bg-mobile-light.jpg);
+    --stroke-color: rgba(0, 0, 0, 0.5);
+    --surface-color: rgba(0, 0, 0, 0.05);
+    --surface-color-hover: rgba(0, 0, 0, 0.02);
+    --social-color-hover: rgba(0, 0, 0, 0.1);
+    --switch-icon: url(assets/sun.svg);
+}
+
+body * {
+    font-family: 'Inter', sans-serif;
+    color: var(--text-color);
+
+}
+
+body  {
+    background: var(--bg-url) top center/cover no-repeat;
+    width: 360px;
+    margin: 56px auto 0;
+    padding: 0 24px;
+}
+
+
+#profile {
+    padding: 24px;
+    text-align: center;
+}
+
+img#avatar {
+    border: 2px solid var(--stroke-color);
+    border-radius: 50%;
+    width: 112px;
+}
+
+p#username{
+    padding-top: 8px;
+    font-weight: 500;
+    line-height: 24px;
+}
+
+#switch{
+    position: relative;
+    width: 64px;
+    margin: 4px auto;
+    
+}
+
+#switch button{
+    width: 32px;
+    height: 32px;
+    border: 0;
+    border-radius: 50%;
+    background: white var(--switch-icon) no-repeat center;
+    
+    position: absolute;
+    z-index: 1;
+    top: 50%;
+    left: 50;
+    transform: translateY(-50%);
+}
+
+.light #switch button{
+    right: 0;
+    left: initial;
+}
+
+
+#switch span{
+    display: block;
+    width: 64px;
+    height: 24px;
+    background-color: var(--surface-color);
+    border: 1px solid var(--stroke-color);
+    border-radius: 9999px;
+    -webkit-backdrop-filter: blur(4px);
+
+}
+
+/* Aplicou o flex para poder criar o gap entre os li */
+#buttons {
+    list-style: none;
+    list-style-position: inside;
+
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+
+    padding: 24px 0;
+}
+
+/* Aplicando as propriedades do flex no li e não no ul pq queremos o ul#buttons pra que os links ocupem 100% da largura */
+#buttons li a{
+    border: 1px solid var(--stroke-color);
+    border-radius: 8px;
+    background: var(--surface-color);
+    -webkit-backdrop-filter: blur(4px);
+
+    display: flex; 
+    justify-content: center;
+    align-items: center;
+    padding: 16px 24px;
+
+    text-decoration: none;
+    font-weight: 500;
+
+    transition: background 0.2s;
+}
+
+#buttons li a:hover{
+    border: 1.5px solid var(--text-color);
+    background: var(--surface-color-hover);
+
+}
+
+
+/* Nesse caso já aplicamos o flex no container pq queremos os links no tamanho real*/
+#social{
+    list-style: none;
+    list-style-position: inside;
+    padding: 24px 0;
+    display: flex;    
+    flex-direction: row;
+    align-content: center;
+    justify-content: center;
+    
+    font-size: 24px;
+}
+
+
+#social a{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 16px; /* Coloca o padding aqui pra não ficar reposicionando no hover */
+    border-radius: 50%; /* Coloca o radius aqui pra não ficar alterando na transição */
+
+    transition: background 0.2s;
+}
+
+#social a:hover{
+    background: var(--social-color-hover);
+}
+
+footer {
+    padding: 24px 0;
+    text-align: center;
+    font-size: 14px ;
+}
