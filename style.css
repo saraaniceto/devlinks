@@ -6,22 +6,22 @@
 
 :root {
     --text-color: white;
-    --bg-url: url(/assets/bg-mobile.jpg);
+    --bg-url: url(assets/bg-mobile.jpg);
     --stroke-color: rgba(255, 255, 255, 0.5);
     --surface-color: rgba(255, 255, 255, 0.05);
     --surface-color-hover: rgba(255, 255, 255, 0.02);
-    --social-color-hover: rgba(255, 255, 255, 0.2);
+    --highlight-color-hover: rgba(255, 255, 255, 0.2);
     --switch-icon: url(assets/moon-stars.svg);
  
 }
 
 .light {
     --text-color: black;
-    --bg-url: url(/assets/bg-mobile-light.jpg);
+    --bg-url: url(assets/bg-mobile-light.jpg);
     --stroke-color: rgba(0, 0, 0, 0.5);
     --surface-color: rgba(0, 0, 0, 0.05);
     --surface-color-hover: rgba(0, 0, 0, 0.02);
-    --social-color-hover: rgba(0, 0, 0, 0.1);
+    --highlight-color-hover: rgba(0, 0, 0, 0.1);
     --switch-icon: url(assets/sun.svg);
 }
 
@@ -33,9 +33,11 @@ body * {
 
 body  {
     background: var(--bg-url) top center/cover no-repeat;
-    width: 360px;
+    width: 100%;
+    max-width: 600px;
     margin: 56px auto 0;
     padding: 0 24px;
+    height: 100vh;
 }
 
 
@@ -75,11 +77,20 @@ p#username{
     top: 50%;
     left: 50;
     transform: translateY(-50%);
+
+    animation: slide-back .2s;
+}
+
+#switch button:hover{
+    outline: 8px solid var(--highlight-color-hover);
 }
 
 .light #switch button{
-    right: 0;
-    left: initial;
+    animation: slide-in .2s forwards;
+}
+
+.light #switch button:hover{
+    outline: 8px solid var(--highlight-color-hover);
 }
 
 
@@ -156,11 +167,39 @@ p#username{
 }
 
 #social a:hover{
-    background: var(--social-color-hover);
+    background: var(--highlight-color-hover);
 }
 
 footer {
     padding: 24px 0;
     text-align: center;
     font-size: 14px ;
+}
+
+@media (min-width: 700px){
+    :root{
+        --bg-url: url(assets/bg-desktop.jpg);
+    }
+
+    .light{
+        --bg-url: url(assets/bg-desktop-light.jpg)
+    }
+}
+
+@keyframes slide-in {
+    from {
+        left: 0;
+    }
+    to {
+        left: 50%;
+    }
+}
+
+@keyframes slide-back {
+    from {
+        left: 50%;
+    }
+    to {
+        left: 0;
+    }
 }
