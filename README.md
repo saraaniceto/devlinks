@@ -12,7 +12,7 @@ O DevLinks foi desenvolvido durante o programa Discover, um programa gratuito pr
 </p>
 
 <p align="center">
-  <img alt="Projeto Discover" src="assets/preview.jpg">
+  <img alt="Projeto Discover" src="assets/readme.png">
 </p>
 
 ## ✏️ Projeto 
